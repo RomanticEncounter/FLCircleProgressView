@@ -53,7 +53,6 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.cornerRadius = 0.0;
     self.cornerRadius = MIN(self.fl_width, self.fl_height) * 0.5 - self.lineWidth * 0.5;
 //    if (CGRectGetHeight(self.frame) > CGRectGetWidth(self.frame)) {
 //        self.cornerRadius = CGRectGetWidth(self.frame) * 0.5 - self.lineWidth;
