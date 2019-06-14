@@ -14,6 +14,8 @@
 		08DC8B4B22B3EA110065CEA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08DC8B4922B3EA110065CEA5 /* LaunchScreen.storyboard */; };
 		08DC8B4E22B3EA110065CEA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DC8B4D22B3EA110065CEA5 /* main.m */; };
 		08DC8B5722B3EC670065CEA5 /* FLCircleProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DC8B5622B3EC670065CEA5 /* FLCircleProgressView.m */; };
+		08DC8B5A22B3F7440065CEA5 /* NSString+FLTextSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DC8B5822B3F7440065CEA5 /* NSString+FLTextSize.m */; };
+		08DC8B5D22B3FB800065CEA5 /* UIView+FLFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DC8B5C22B3FB800065CEA5 /* UIView+FLFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,10 @@
 		08DC8B4D22B3EA110065CEA5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		08DC8B5522B3EC670065CEA5 /* FLCircleProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLCircleProgressView.h; sourceTree = "<group>"; };
 		08DC8B5622B3EC670065CEA5 /* FLCircleProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLCircleProgressView.m; sourceTree = "<group>"; };
+		08DC8B5822B3F7440065CEA5 /* NSString+FLTextSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FLTextSize.m"; sourceTree = "<group>"; };
+		08DC8B5922B3F7440065CEA5 /* NSString+FLTextSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FLTextSize.h"; sourceTree = "<group>"; };
+		08DC8B5B22B3FB7F0065CEA5 /* UIView+FLFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FLFrame.h"; sourceTree = "<group>"; };
+		08DC8B5C22B3FB800065CEA5 /* UIView+FLFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLFrame.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,10 @@
 		08DC8B5422B3EC3D0065CEA5 /* FLCircleProgressView */ = {
 			isa = PBXGroup;
 			children = (
+				08DC8B5B22B3FB7F0065CEA5 /* UIView+FLFrame.h */,
+				08DC8B5C22B3FB800065CEA5 /* UIView+FLFrame.m */,
+				08DC8B5922B3F7440065CEA5 /* NSString+FLTextSize.h */,
+				08DC8B5822B3F7440065CEA5 /* NSString+FLTextSize.m */,
 				08DC8B5522B3EC670065CEA5 /* FLCircleProgressView.h */,
 				08DC8B5622B3EC670065CEA5 /* FLCircleProgressView.m */,
 			);
@@ -155,10 +165,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08DC8B5D22B3FB800065CEA5 /* UIView+FLFrame.m in Sources */,
 				08DC8B4322B3EA100065CEA5 /* ViewController.m in Sources */,
 				08DC8B5722B3EC670065CEA5 /* FLCircleProgressView.m in Sources */,
 				08DC8B4E22B3EA110065CEA5 /* main.m in Sources */,
 				08DC8B4022B3EA100065CEA5 /* AppDelegate.m in Sources */,
+				08DC8B5A22B3F7440065CEA5 /* NSString+FLTextSize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
