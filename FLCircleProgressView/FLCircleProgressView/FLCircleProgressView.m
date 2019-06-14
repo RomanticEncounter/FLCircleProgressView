@@ -42,12 +42,12 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.cornerRadius = 0.0;
-    
-    if (CGRectGetHeight(self.frame) > CGRectGetWidth(self.frame)) {
-        self.cornerRadius = CGRectGetWidth(self.frame) * 0.5 - self.lineWidth;
-    } else {
-        self.cornerRadius = CGRectGetHeight(self.frame) * 0.5 - self.lineWidth;
-    }
+    self.cornerRadius = MIN(self.fl_width, self.fl_height) * 0.5 - self.lineWidth * 0.5;
+//    if (CGRectGetHeight(self.frame) > CGRectGetWidth(self.frame)) {
+//        self.cornerRadius = CGRectGetWidth(self.frame) * 0.5 - self.lineWidth;
+//    } else {
+//        self.cornerRadius = CGRectGetHeight(self.frame) * 0.5 - self.lineWidth;
+//    }
 }
 
 #pragma mark - Draw
@@ -89,7 +89,9 @@
     //文字大小
     CGSize textSize = [self.contentText fl_sizeForFont:self.contentTextFont];
     CGPoint center = CGPointMake(self.fl_width * 0.5, self.fl_height * 0.5);
-    CGRect textFrame = CGRectMake(center.x - textSize.width * 0.5, center.y - textSize.height * 0.5, textSize.width, textSize.height);
+    //增加对文字最大宽度的约束
+    CGFloat textWidth = MIN(textSize.width, self.fl_width - 2 * self.lineWidth);
+    CGRect textFrame = CGRectMake(center.x - textWidth * 0.5, center.y - textSize.height * 0.5, textWidth, textSize.height);
     self.contentTextLayer.frame = textFrame;
     //    self.contentTextLayer.string = self.contentText;
     [self.layer addSublayer:self.contentTextLayer];
@@ -129,7 +131,8 @@
     //重新计算文字大小
     CGSize textSize = [contentText fl_sizeForFont:self.contentTextFont];
     CGPoint center = CGPointMake(self.fl_width * 0.5, self.fl_height * 0.5);
-    CGRect textFrame = CGRectMake(center.x - textSize.width * 0.5, center.y - textSize.height * 0.5, textSize.width, textSize.height);
+    CGFloat textWidth = MIN(textSize.width, self.fl_width - 2 * self.lineWidth);
+    CGRect textFrame = CGRectMake(center.x - textWidth * 0.5, center.y - textSize.height * 0.5, textWidth, textSize.height);
     self.contentTextLayer.frame = textFrame;
     self.contentTextLayer.string = contentText;
 }

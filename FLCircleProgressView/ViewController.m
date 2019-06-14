@@ -23,7 +23,7 @@
     circleProgressView.backgroundColor = [UIColor whiteColor];
     circleProgressView.progressColor = [UIColor orangeColor];
     circleProgressView.contentTextFont = [UIFont systemFontOfSize:18.0];
-    circleProgressView.contentText = @"80℉";
+    circleProgressView.contentText = @"-----------80.00℃-----------";
     circleProgressView.progress = 0.8;
     [self.view addSubview:circleProgressView];
     
@@ -39,7 +39,7 @@
 - (void)changeValueButton:(UIButton *)sender {
     float randomVlaue = (float)(arc4random() % 100) / 100.0;
     self.circleProgressView.progress = randomVlaue;
-    self.circleProgressView.contentText = [NSString stringWithFormat:@"%.2f℉",randomVlaue * 100];
+    self.circleProgressView.contentText = [NSString stringWithFormat:@"-----------%.2f℃-----------",randomVlaue * 100];
 }
 
 
