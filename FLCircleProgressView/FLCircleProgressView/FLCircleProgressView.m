@@ -13,12 +13,24 @@
 
 @interface FLCircleProgressView ()
 
+/**
+ 导轨layer
+ */
 @property (nonatomic, strong) CAShapeLayer *circleBackgroundLayer;
 
+/**
+ 进度layer
+ */
 @property (nonatomic, strong) CAShapeLayer *progressLayer;
 
+/**
+ 文本layer
+ */
 @property (nonatomic, strong) CATextLayer *contentTextLayer;
 
+/**
+ 半径
+ */
 @property (nonatomic, assign) CGFloat cornerRadius;
 
 @end
@@ -33,8 +45,8 @@
         _progressColor = [UIColor grayColor];
         _progressLineCap = kCALineCapRound;
         _contentTextColor = [UIColor lightGrayColor];
-        _contentTextFont = [UIFont systemFontOfSize:13];
-        _contentText = @"10人";
+        _contentTextFont = [UIFont systemFontOfSize:16];
+//        _contentText = @"";
     }
     return self;
 }
@@ -61,7 +73,9 @@
     [super drawLayer:layer inContext:ctx];
     [self fl_drawCircleBackgroundLayer];
     [self fl_drawProgressLayer];
-    [self fl_drawContentTextLayer];
+    if (_contentText.length) {
+        [self fl_drawContentTextLayer];
+    }
 }
 
 - (void)fl_drawCircleBackgroundLayer {
@@ -93,7 +107,7 @@
     CGFloat textWidth = MIN(textSize.width, self.fl_width - 2 * self.lineWidth);
     CGRect textFrame = CGRectMake(center.x - textWidth * 0.5, center.y - textSize.height * 0.5, textWidth, textSize.height);
     self.contentTextLayer.frame = textFrame;
-    //    self.contentTextLayer.string = self.contentText;
+    self.contentTextLayer.string = self.contentText;
     [self.layer addSublayer:self.contentTextLayer];
 }
 
@@ -128,13 +142,17 @@
 
 - (void)setContentText:(NSString *)contentText {
     _contentText = contentText;
-    //重新计算文字大小
-    CGSize textSize = [contentText fl_sizeForFont:self.contentTextFont];
-    CGPoint center = CGPointMake(self.fl_width * 0.5, self.fl_height * 0.5);
-    CGFloat textWidth = MIN(textSize.width, self.fl_width - 2 * self.lineWidth);
-    CGRect textFrame = CGRectMake(center.x - textWidth * 0.5, center.y - textSize.height * 0.5, textWidth, textSize.height);
-    self.contentTextLayer.frame = textFrame;
-    self.contentTextLayer.string = contentText;
+    if (_contentTextLayer) {
+        //重新计算文字大小
+        CGSize textSize = [contentText fl_sizeForFont:self.contentTextFont];
+        CGPoint center = CGPointMake(self.fl_width * 0.5, self.fl_height * 0.5);
+        CGFloat textWidth = MIN(textSize.width, self.fl_width - 2 * self.lineWidth);
+        CGRect textFrame = CGRectMake(center.x - textWidth * 0.5, center.y - textSize.height * 0.5, textWidth, textSize.height);
+        self.contentTextLayer.frame = textFrame;
+        self.contentTextLayer.string = contentText;
+    } else {
+        [self fl_drawContentTextLayer];
+    }
 }
 
 - (void)setContentTextFont:(UIFont *)contentTextFont {
